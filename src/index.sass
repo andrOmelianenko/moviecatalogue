@@ -1,0 +1,170 @@
+$black: #000
+$white: #fff
+$lightGrey: #f2f2f2
+$grey: #808080
+$darkGrey: #525252
+
+*
+    margin: 0
+    padding: 0
+    font-family: 'Open Sans'
+
+.container_padding
+    padding: 40px 50px
+
+.text_shadow
+    text-shadow: 1px 1px 2px rgba($black, .2)
+
+.box_shadow
+    box-shadow: 0 1px 4px rgba($black, .35)
+
+.centered
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+.wrapper
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    min-width: 320px
+    overflow-y: auto
+    background-color: $lightGrey
+
+.header
+    @extend .box_shadow
+    z-index: 2
+    position: sticky
+    top: 0
+    height: 60px
+    background-color: $white
+
+.search_input
+    @extend .centered
+    position: relative
+    padding: 0 10px
+    height: 30px
+    width: 80%
+    font-size: 1.2rem
+    -webkit-appearance: none
+    outline: none
+    color: $darkGrey
+    border: 1px solid $grey
+    &:focus
+        @extend .box_shadow
+
+.grid_container
+    @extend .container_padding
+    z-index: 1
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr))
+    grid-gap: 20px
+    .no_data_msg
+        @extend .centered
+        position: absolute
+        display: block
+        color: $grey
+
+.poster
+    @extend .box_shadow
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 5px
+    background-color: $white
+    cursor: pointer
+    color: $darkGrey
+    text-align: center
+    transition: transform .2s
+    &:hover
+        transform: scale(1.04)
+    .title
+        @extend .text_shadow
+        margin: 10px 0
+
+.image_wrapper
+    position: relative
+    min-height: 300px
+    width: 100%
+    background-color: $white
+    img
+        width: 100%
+    .no_image_msg
+        @extend .centered
+        position: absolute
+        font-weight: bold
+        font-size: 1.2rem
+        color: rgba($grey, .5)
+        text-transform: uppercase
+
+.informer_overlay
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 0
+    pointer-events: none
+    opacity: 0
+    background-color: rgba($white, .85)
+    transition: opacity .4s
+    &.active
+        opacity: 1
+        pointer-events: all
+    .informer_msg
+        @extend .centered
+        @extend .text_shadow
+        position: absolute
+        color: $grey
+        font-size: 1.2rem
+
+.movie_wrapper
+    @extend .container_padding
+    display: flex
+    align-items: start
+    color: $darkGrey
+    margin: 0 auto
+    max-width: 1000px
+    .movie_poster
+        flex-basis: 35%
+    .movie_info
+        flex-basis: 65%
+        margin-left: 30px
+        margin-top: -10px
+        & > *
+            margin-bottom: 10px
+        .ratings
+            @extend .box_shadow
+            padding: 10px
+            font-size: 1.1rem
+            font-weight: bold
+            background-color: $white
+            p:nth-child(2)
+                margin: 5px 0
+
+.back
+    position: absolute
+    opacity: 1
+    text-decoration: none
+    color: $darkGrey
+    font-size: 1.1rem
+    margin-left: 50px
+    top: 50%
+    transform: translateY(-50%)
+    transition: opacity .3s
+    &:hover
+        opacity: .7
+
+@media (max-width: 650px)
+    .movie_wrapper
+        flex-direction: column
+        align-items: center
+        padding: 40px 30px
+        .movie_info
+            margin-top: 10px
+            margin-left: 0
+
+    .back
+        margin-left: 30px
