@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/andrOmelianenko/moviecatalogue#readme",
   "devDependencies": {
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "parcel-bundler": "^1.12.4"
   },
   "dependencies": {
